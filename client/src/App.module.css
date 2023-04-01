@@ -33,3 +33,25 @@
 .btn {
   padding: 8px 16px;
 }
+
+.taskContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 12px;
+  list-style-type: none;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  background: black;
+  padding: 12px;
+  color: white;
+  border-radius: 2px;
+}
+
+.btnContainer {
+  display: flex;
+  gap: 12px;
+}

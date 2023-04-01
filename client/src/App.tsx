@@ -19,6 +19,9 @@ function App() {
       .then((json) => console.log(json));
     setData((prevState: any[]) => [...prevState, { task }]);
   };
+  const modifyTasks = (e: React.MouseEvent) => {
+    console.log(e.target);
+  };
   useEffect(() => {
     console.log(123);
     fetch("http://localhost:3000/api/getAll")
@@ -50,9 +53,17 @@ function App() {
             <button className={styles.btn}>Submit</button>
           </div>
         </form>
-        <ul>
+        <ul className={styles.taskContainer} onClick={modifyTasks}>
           {data.map(({ task }) => {
-            return <li>{task}</li>;
+            return (
+              <li className={styles.task}>
+                <span>{task}</span>
+                <div className={styles.btnContainer}>
+                  <button>Edit</button>
+                  <button>Delete</button>
+                </div>
+              </li>
+            );
           })}
         </ul>
       </div>

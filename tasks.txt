@@ -6,9 +6,18 @@ Full stack Todo App
 
 - Develop an API with express (in progress)
 
-- Fetch tasks with useEffect 
+- Fetch tasks with useEffect (done)
     - When user sends get request, how to fetch data from db?
 
-- Continue to do more research about mongoose docs 
+- Continue to do more research about mongoose docs (in progress) 
 
 
+Current technical problems
+
+- Figure out a react key to use when mapping tasks
+    - Can use index as key, but will cause problems with rendering
+    - Ideally we want to get the ID from db
+
+- Handle modifying tasks with event propagation or using inline handlers?
+    - Might use inline for the sake of learning API/DB only
+    
