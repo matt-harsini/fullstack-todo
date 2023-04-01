@@ -16,8 +16,13 @@ router.post("/post", async (request, response) => {
   }
 });
 
-router.get("/getAll", (request, response) => {
-  response.send("Get All API");
+router.get("/getAll", async (request, response) => {
+  try {
+    const data = await Model.find();
+    response.json(data);
+  } catch (error) {
+    response.status(500).json({ message: error.message });
+  }
 });
 
 router.get("/getOne/:id", (request, response) => {

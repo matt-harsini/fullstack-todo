@@ -3,8 +3,10 @@ import styles from "./App.module.css";
 
 function App() {
   const [task, setTask] = useState("");
+  const [data, setData] = useState<any[]>([]);
   const handleSubmit = (e: React.FormEvent) => {
-    fetch("http://localhost:3000", {
+    e.preventDefault();
+    fetch("http://localhost:3000/api/post", {
       method: "POST",
       body: JSON.stringify({
         task,
@@ -15,9 +17,15 @@ function App() {
     })
       .then((response) => response.json())
       .then((json) => console.log(json));
-    e.preventDefault();
-    console.log(e);
+    setData((prevState: any[]) => [...prevState, { task }]);
   };
+  useEffect(() => {
+    console.log(123);
+    fetch("http://localhost:3000/api/getAll")
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch((error) => console.log(error));
+  }, []);
   return (
     <main className={styles.fullHeight}>
       <div className={styles.formContainer} onSubmit={handleSubmit}>
@@ -42,6 +50,11 @@ function App() {
             <button className={styles.btn}>Submit</button>
           </div>
         </form>
+        <ul>
+          {data.map(({ task }) => {
+            return <li>{task}</li>;
+          })}
+        </ul>
       </div>
     </main>
   );

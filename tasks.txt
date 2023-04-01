@@ -2,7 +2,13 @@ Full stack Todo App
 
 - Have users enter tasks into an HTML form (done)
 
-- Those tasks will be stored on a database instead of localstorage (next task)
+- Those tasks will be stored on a database instead of localstorage (done)
 
 - Develop an API with express (in progress)
+
+- Fetch tasks with useEffect 
+    - When user sends get request, how to fetch data from db?
+
+- Continue to do more research about mongoose docs 
+
 
